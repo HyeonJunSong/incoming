@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:incoming/viewModel/bindings.dart';
-
 import 'view/01homePage/home_page.dart';
+
 
 void main() => runApp(MyApp());
 
