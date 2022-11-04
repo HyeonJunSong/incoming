@@ -19,18 +19,6 @@ Future<LatLng> AtoC(String address) async {
       case 200:
         Map<String, dynamic> parsedJson = Map<String, dynamic>.from(List<dynamic>.from(Map<String, dynamic>.from(jsonDecode(utf8.decode(response.bodyBytes)))["addresses"])[0]);
         return LatLng(double.parse(parsedJson["y"]), double.parse(parsedJson["x"]));
-    // Map<String, dynamic>.from(
-    //     jsonDecode(utf8.decode(response.bodyBytes))
-    // ).forEach((key, value) {
-    //   Map<String, String> newNote = Map<String, String>.from(value);
-    //   newNotes.add(
-    //       Note(
-    //           title: newNote["title"]!,
-    //           content: newNote["content"]!,
-    //           date: newNote["date"]!
-    //       ));
-    // });
-    // return newNotes;
       case 401:
       //
         break;
@@ -43,4 +31,37 @@ Future<LatLng> AtoC(String address) async {
   }
 
   return LatLng(0, 0);
+}
+
+Future<int> CtoA(LatLng coor) async {
+  try {
+    final response = await http.get(
+        Uri.parse('https://${ctoaBaseUrl}${ctoaQuery}?coords=${coor.longitude},${coor.latitude}'),
+        headers: {
+          "X-NCP-APIGW-API-KEY-ID" : ctoaKeyID,
+          "X-NCP-APIGW-API-KEY" : ctoaKey
+        }
+    );
+
+    print(utf8.decode(response.bodyBytes));
+
+    switch (response.statusCode) {
+      case 200:
+        // Map<String, dynamic> parsedJson = Map<String, dynamic>.from(List<dynamic>.from(Map<String, dynamic>.from(jsonDecode(utf8.decode(response.bodyBytes)))["addresses"])[0]);
+        // return LatLng(double.parse(parsedJson["y"]), double.parse(parsedJson["x"]));
+        Map<String, dynamic> SiDo = Map<String, dynamic>.from(Map<String, dynamic>.from(jsonDecode(utf8.decode(response.bodyBytes)))["area1"]);
+        Map<String, dynamic> SiGoonGoo = Map<String, dynamic>.from(Map<String, dynamic>.from(jsonDecode(utf8.decode(response.bodyBytes)))["area2"]);
+
+      case 401:
+      //
+        break;
+      default:
+      //
+        break;
+    }
+  } on SocketException {
+    //
+  }
+
+  return 0;
 }

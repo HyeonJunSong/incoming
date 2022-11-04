@@ -11,7 +11,6 @@ Future<bool> getPermission() async{
   else{
     //Permission은 최초 거부를 누르게되면 Permission 요청을 보내지 않는다.
     //따라서 openAppSettings(); 함수를 이용해 별도 사용자가 직접 권한을 켜줘야 한다.
-    openAppSettings();
     return Future.value(false);
   }
 }

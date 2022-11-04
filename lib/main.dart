@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:incoming/viewModel/bindings.dart';
-import 'view/01homePage/home_page.dart';
+import 'view/01mainPage/main_page.dart';
 
 
 void main() => runApp(MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             title: 'incoming',
             initialRoute: "/Home",
             getPages: [
-              GetPage(name: '/Home', page: () => const HomePage(), binding: InitBinding()),
+              GetPage(name: '/Home', page: () => const MainPage(), binding: InitBinding()),
             ],
 //            initialBinding: InitBinding(),
           );

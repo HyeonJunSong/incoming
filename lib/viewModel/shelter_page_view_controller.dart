@@ -14,8 +14,8 @@ class ShelterPageViewController extends GetxService{
     return curLocation.value.longitude == 0 && curLocation.value.latitude == 0;
   }
 
-  void getShelterList() async {
-    shelterList(await getShelters(10, 1, 2714010100));
+  void getShelterList(int adm_cd) async {
+    shelterList(await getShelters(10, 1, adm_cd));
   }
 
   List<Marker> shelterListToMarkers(){
