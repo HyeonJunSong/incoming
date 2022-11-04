@@ -5,6 +5,7 @@ import 'package:incoming/model/curLocation.dart';
 import 'package:incoming/view/11shelterPage/shelter_page.dart';
 import 'package:incoming/viewModel/shelter_page_view_controller.dart';
 import 'package:naver_map_plugin/naver_map_plugin.dart';
+import '../13newsPage/news_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
