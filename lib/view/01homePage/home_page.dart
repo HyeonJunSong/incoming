@@ -22,13 +22,14 @@ class _HomePageState extends State<HomePage> {
     WidgetsBinding.instance.addPostFrameCallback((_){
       getPermission();
       getCurrentLocation().then((value) => Get.find<ShelterPageViewController>().updateLocation(LatLng(value.latitude, value.longitude)));
+      Get.find<ShelterPageViewController>().getShelterList();
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NewsPage(),
+      body: ShelterPage(),
     );
   }
 }
