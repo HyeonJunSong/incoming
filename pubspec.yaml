@@ -38,6 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   flutter_screenutil: ^5.6.0
+  naver_map_plugin: ^0.9.6
+  geolocator: ^9.0.2
+  permission_handler: ^10.2.0
 
 dev_dependencies:
   flutter_test:
