@@ -6,7 +6,24 @@ class NewsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("News Page"),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            _card(),
+            _card(),
+            _card(),
+            _card(),
+            _card(),
+          ],
+        ),
+      ),
     );
   }
 }
+
+_card() => Container(
+  width: 200,
+  height: 200,
+  color: Colors.blue,
+  child: Text("card"),
+);
