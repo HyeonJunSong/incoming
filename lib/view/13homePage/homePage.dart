@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:incoming/constants.dart';
+import 'package:incoming/model/address_coordinate.dart';
 import 'package:incoming/viewModel/bottomNavigationBarViewController.dart';
+import 'package:incoming/viewModel/shelter_page_view_controller.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,6 +41,12 @@ _appBar() => Positioned(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(30.w),
+        ),
+        child: TextField(
+          textInputAction: TextInputAction.go,
+            onSubmitted: (value) async {
+              AtoC(value).then((value) => Get.find<ShelterPageViewController>().searchShelterList(value));
+            }
         ),
       ),
     ),
