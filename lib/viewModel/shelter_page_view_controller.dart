@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:incoming/model/address_coordinate.dart';
 import 'package:incoming/model/shelter.dart';
 import 'package:naver_map_plugin/naver_map_plugin.dart';
 
@@ -15,7 +16,12 @@ class ShelterPageViewController extends GetxService{
   }
 
   void getShelterList(int adm_cd) async {
-    shelterList(await getShelters(10, 1, adm_cd));
+    shelterList(await getShelters(100, 1, adm_cd));
+  }
+
+  void searchShelterList(LatLng coor) async{
+    CtoA(LatLng(coor.latitude, coor.longitude)).then((cor) => Get.find<ShelterPageViewController>().getShelterList(cor));
+    shelterListToMarkers();
   }
 
   List<Marker> shelterListToMarkers(){

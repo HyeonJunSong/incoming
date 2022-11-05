@@ -24,13 +24,14 @@ class Shelter{
 }
 
 Future<List<Shelter>> getShelters(int numOfRows, int pageNo, int adm_cd) async {
-
   try {
     final response = await http.get(
       Uri.parse('http://$shelterBaseUrl$getSheltersQuery?numOfRows=${numOfRows}&pageNo=${pageNo}&adm_cd=${adm_cd}'),
     );
     switch (response.statusCode) {
       case 200:
+        print("//////////////////////////////////////////////////////////////////");
+        print(jsonDecode(utf8.decode(response.bodyBytes)));
         List<Shelter> newShelters = [];
         Map<String, List<dynamic>>.from(Map<String, dynamic>.from(jsonDecode(utf8.decode(response.bodyBytes)))["body"])["items"]?.forEach((element) {
           Map<String, String>? curShelterJson = Map<String, String>.from(Map<String, dynamic>.from(element)["item"]);

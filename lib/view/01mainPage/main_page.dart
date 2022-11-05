@@ -7,6 +7,7 @@ import 'package:incoming/view/11newsPage/news_page.dart';
 import 'package:incoming/view/12howToPage/how_to_page.dart';
 import 'package:incoming/view/13homePage/homePage.dart';
 import 'package:incoming/view/14shelterPage/shelter_page.dart';
+import 'package:incoming/view/15savedPage/saved_page.dart';
 import 'package:incoming/viewModel/bottomNavigationBarViewController.dart';
 import 'package:incoming/viewModel/shelter_page_view_controller.dart';
 import 'package:incoming/widgets/bottomNavigationBar.dart';
@@ -68,10 +69,10 @@ _pages() => Container(
       //   left: 390.w * 0,
       //   child: NewsPage()
       // ),
-      // Positioned(
-      //   left: 390.w * 1,
-      //   child: HowToPage()
-      // ),
+      Positioned(
+        left: 390.w * 1,
+        child: HowToPage()
+      ),
       Positioned(
         left: 390.w * 2,
         child: HomePage()
@@ -80,10 +81,10 @@ _pages() => Container(
         left: 390.w * 3,
         child: ShelterPage()
       ),
-      // Positioned(
-      //   left: 390.w * 4,
-      //   child: ShelterPage()
-      // ),
+      Positioned(
+        left: 390.w * 4,
+        child: SavedPage()
+      ),
     ],
   ),
 );
